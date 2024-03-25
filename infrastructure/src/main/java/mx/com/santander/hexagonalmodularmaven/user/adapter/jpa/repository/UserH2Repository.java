@@ -1,13 +1,14 @@
 package mx.com.santander.hexagonalmodularmaven.user.adapter.jpa.repository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import mx.com.santander.hexagonalmodularmaven.user.adapter.jpa.UserSpringJpaAdapterRepository;
 import mx.com.santander.hexagonalmodularmaven.user.adapter.mapper.UserDboMapper;
 import mx.com.santander.hexagonalmodularmaven.user.model.entity.User;
 import mx.com.santander.hexagonalmodularmaven.user.port.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
-
+@RequiredArgsConstructor
 @Repository
 @Transactional
 public class UserH2Repository implements UserRepository {
@@ -15,10 +16,6 @@ public class UserH2Repository implements UserRepository {
     private final UserSpringJpaAdapterRepository userSpringJpaAdapterRepository;
     private final UserDboMapper userDboMapper;
 
-    public UserH2Repository(UserSpringJpaAdapterRepository userSpringJpaAdapterRepository, UserDboMapper userDboMapper) {
-        this.userSpringJpaAdapterRepository = userSpringJpaAdapterRepository;
-        this.userDboMapper = userDboMapper;
-    }
 
     @Override
     public User create(User user) {

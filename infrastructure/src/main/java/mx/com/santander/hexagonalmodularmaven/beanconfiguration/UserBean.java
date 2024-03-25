@@ -1,5 +1,6 @@
 package mx.com.santander.hexagonalmodularmaven.beanconfiguration;
 
+import mx.com.santander.hexagonalmodularmaven.entry.service.EntryService;
 import mx.com.santander.hexagonalmodularmaven.user.port.dao.UserDao;
 import mx.com.santander.hexagonalmodularmaven.user.port.repository.UserRepository;
 import mx.com.santander.hexagonalmodularmaven.task.port.dao.TaskDao;
@@ -38,8 +39,8 @@ public class UserBean {
     }
 
     @Bean
-    public UserCreateService userCreateService(UserRepository userRepository){
-        return new UserCreateService(userRepository);
+    public UserCreateService userCreateService(UserRepository userRepository, EntryService entryService){
+        return new UserCreateService(userRepository,entryService);
     }
 
     @Bean
